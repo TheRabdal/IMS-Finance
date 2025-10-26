@@ -13,7 +13,6 @@
             <h1>Kalkulator Perhitungan Denda</h1>
         </header>
 
-        <!-- Penalty Calculator Form -->
         <div class="form-container" style="margin-bottom: 40px;">
             <form action="" method="get">
                 <label for="kontrak_no">Pilih No. Kontrak</label>
@@ -38,7 +37,6 @@
             </form>
         </div>
 
-        <!-- Report Table -->
         <?php if (isset($_GET['calculate_penalty'])): ?>
         <div class="table-container">
             <h2>Hasil Perhitungan Denda</h2>
@@ -70,7 +68,6 @@
 
                     if ($result_report->num_rows > 0) {
                         while($row = $result_report->fetch_assoc()) {
-                            // Only show positive days of delay
                             if ($row["HARI_KETERLAMBATAN"] > 0) {
                                 echo "<tr>";
                                 echo "<td>" . $row["ANGSURAN_KE"] . "</td>";

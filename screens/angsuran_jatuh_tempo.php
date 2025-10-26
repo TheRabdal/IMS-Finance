@@ -13,7 +13,6 @@
             <h1>Cek Angsuran Jatuh Tempo</h1>
         </header>
 
-        <!-- Overdue Calculator Form -->
         <div class="form-container" style="margin-bottom: 40px;">
             <form action="" method="get">
                 <label for="kontrak_no">Pilih No. Kontrak</label>
@@ -38,7 +37,6 @@
             </form>
         </div>
 
-        <!-- Report Table -->
         <?php if (isset($_GET['calculate_overdue'])): ?>
         <div class="table-container">
             <h2>Hasil Laporan</h2>
