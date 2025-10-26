@@ -18,10 +18,10 @@ Pastikan Anda memiliki perangkat lunak berikut terinstal di sistem Anda:
 ## Instalasi & Menjalankan
 
 1.  **Clone atau Unduh Repositori**
-    Jika menggunakan git, clone repositori ini. Jika tidak, unduh dan ekstrak file proyek.
+    Jika menggunakan git, clone repositori ini https://github.com/TheRabdal/IMS-Finance.git. Jika tidak, unduh dan ekstrak file proyek.
 
 2.  **Pindahkan ke Direktori Web Server**
-    Pindahkan folder proyek ke dalam direktori `htdocs` (untuk XAMPP) atau `www` (untuk WAMP). Seharusnya terlihat seperti `C:\xampp\htdocs\IMS-Finance_dev`.
+    Pindahkan folder proyek ke dalam direktori `htdocs` (untuk XAMPP). Seharusnya terlihat seperti `C:\xampp\htdocs\IMS-Finance_dev`.
 
 3.  **Setup Database**
     *   Buka phpMyAdmin atau klien database pilihan Anda.
