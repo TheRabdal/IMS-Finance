@@ -30,8 +30,11 @@
                     ?>
                 </select>
 
-                <label for="calculation_date">Tanggal Perhitungan Denda</label>
-                <input type="date" name="calculation_date" id="calculation_date" value="<?php echo isset($_GET['calculation_date']) ? htmlspecialchars($_GET['calculation_date']) : date('Y-m-d'); ?>" required>
+                <label for="start_date">Tanggal Mulai Perhitungan Denda</label>
+                <input type="date" name="start_date" id="start_date" value="<?php echo isset($_GET['start_date']) ? htmlspecialchars($_GET['start_date']) : ''; ?>" required>
+
+                <label for="due_date">Tanggal Jatuh Tempo</label>
+                <input type="date" name="due_date" id="due_date" value="<?php echo isset($_GET['due_date']) ? htmlspecialchars($_GET['due_date']) : date('Y-m-d'); ?>" required>
 
                 <button type="submit" name="calculate_penalty">Hitung Denda</button>
             </form>
@@ -52,7 +55,8 @@
                 <tbody>
                     <?php
                     $kontrak_no = $_GET['kontrak_no'];
-                    $calculation_date = $_GET['calculation_date'];
+                    $start_date = $_GET['start_date'];
+                    $due_date = $_GET['due_date'];
                     $total_denda_keseluruhan = 0;
 
                     $stmt = $conn->prepare(
@@ -60,9 +64,9 @@
                          DATEDIFF(?, TANGGAL_JATUH_TEMPO) AS HARI_KETERLAMBATAN, 
                          (ANGSURAN_PER_BULAN * 0.001 * DATEDIFF(?, TANGGAL_JATUH_TEMPO)) AS TOTAL_DENDA
                          FROM installment_schedules
-                         WHERE KONTRAK_NO = ? AND TANGGAL_JATUH_TEMPO < ?"
+                         WHERE KONTRAK_NO = ? AND TANGGAL_JATUH_TEMPO >= ? AND TANGGAL_JATUH_TEMPO < ?"
                     );
-                    $stmt->bind_param("ssss", $calculation_date, $calculation_date, $kontrak_no, $calculation_date);
+                    $stmt->bind_param("sssss", $due_date, $due_date, $kontrak_no, $start_date, $due_date);
                     $stmt->execute();
                     $result_report = $stmt->get_result();
 

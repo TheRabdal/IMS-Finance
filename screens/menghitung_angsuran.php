@@ -15,13 +15,13 @@
         <div class="form-container">
             <form action="" method="post">
                 <label for="otr_calc">OTR (Harga Mobil)</label>
-                <input type="text" name="otr_calc" id="otr_calc" value="240000000" required>
+                <input type="text" name="otr_calc" id="otr_calc" value="250000000" required>
 
                 <label for="dp">Down Payment (%)</label>
-                <input type="text" name="dp" id="dp" value="20" required>
+                <input type="text" name="dp" id="dp" value="10" required>
 
                 <label for="jangka_waktu">Jangka Waktu (tahun)</label>
-                <input type="text" name="jangka_waktu" id="jangka_waktu" value="1.5" required>
+                <input type="text" name="jangka_waktu" id="jangka_waktu" value="1" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'); if(this.value < 0){alert('Jangka waktu tidak boleh minus'); this.value='';}">
 
                 <button type="submit" name="calculate">Hitung</button>
             </form>
